@@ -13,11 +13,12 @@ public class Main {
 		boolean decisao = true;
 		int brunoGanha = 0;
 		int comptGanha = 0;
-		int empate = 0;
 		int jogadas = 0;
 		
 		Scanner sc = new Scanner(System.in);
+		
 		do {
+			jogadas++;
 			Jogador bruno = null;
 			
 			System.out.println("Qual a jogada de Bruno? 1 - Pedra, 2 - Papel, 3 - Tesoura, 4 - Lagarto, 5 - Spock");
@@ -52,27 +53,19 @@ public class Main {
 			brunoGanha++;
 		} else if (ganhador == computador) {
 			comptGanha++;
-		} else {
-			empate++;
 		}
 		
 		System.out.println("Jogar de novo? 1 - Sim, 2 - Não");
 		int resposta = sc.nextInt();
 		
 			if (resposta == 2) {
-				decisao = false;
+				decisao = false;		
 			} 	
 			
-		
 		} while (decisao == true);
 		sc.close();
-		System.out.println("Relatório de jogo:");
-		System.out.println("Jogador venceu " + brunoGanha + " vezes.");
-		System.out.println("Adverário venceu " + comptGanha + " vezes");
-		System.out.println("O jogo empatou " + empate + " vezes");
-	
+		
 	}
-	
 	
 	private static void imprimirGanhador(Jogador ganhador) {
 		
@@ -81,6 +74,6 @@ public class Main {
 		} else {
 			System.out.println("O ganhador é: " + ganhador.getNome());
 		}
-		System.out.println(ganhador);
+		//System.out.println(ganhador);
 	}
 }
