@@ -7,8 +7,6 @@ import jogador.Jogador;
 
 public class Main {
 	
-	//pergunta jogada e atribui com a escolha; pergunta se quer jogar novamente; imprime resultados.
-
 	public static void main(String[] args) {
 		
 		@SuppressWarnings("unused")
@@ -19,11 +17,6 @@ public class Main {
 		int jogadas = 0;
 		
 		Scanner sc = new Scanner(System.in);
-		//for (@SuppressWarnings("unused")
-		//boolean decisao = true; decisao = true; jogadas++) {
-		//A declaração 1 é executada (uma vez) antes da execução do bloco de código. 
-		//A instrução 2 define a condição para executar o bloco de códigos. 
-		//A instrução 3 é executada (todas as vezes) após o bloqueio do código ter sido executado.
 		do {
 			Jogador bruno = null;
 			
@@ -63,7 +56,7 @@ public class Main {
 			empate++;
 		}
 		
-		System.out.println("Jogar de novo? 1 - Sim, 2 - Não");
+		System.out.println("Jogar de novo? 1 - Sim, 2 - NÃ£o");
 		int resposta = sc.nextInt();
 		
 			if (resposta == 2) {
@@ -73,9 +66,9 @@ public class Main {
 		
 		} while (decisao == true);
 		sc.close();
-		System.out.println("Relatório de jogo:");
+		System.out.println("RelatÃ³rio de jogo:");
 		System.out.println("Jogador venceu " + brunoGanha + " vezes.");
-		System.out.println("Adverário venceu " + comptGanha + " vezes");
+		System.out.println("AdverÃ¡rio venceu " + comptGanha + " vezes");
 		System.out.println("O jogo empatou " + empate + " vezes");
 	
 	}
@@ -86,7 +79,7 @@ public class Main {
 		if (ganhador == null) {
 			System.out.println("Empate!");
 		} else {
-			System.out.println("O ganhador é: " + ganhador.getNome());
+			System.out.println("O ganhador Ã©: " + ganhador.getNome());
 		}
 		System.out.println(ganhador);
 	}
