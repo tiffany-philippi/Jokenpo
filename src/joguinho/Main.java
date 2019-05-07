@@ -9,88 +9,83 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		@SuppressWarnings("unused")
 		boolean decisao = true;
 		int brunoGanha = 0;
 		int comptGanha = 0;
-<<<<<<< HEAD
-<<<<<<< HEAD
 		int jogadas = 0;
 		
 		Scanner sc = new Scanner(System.in);
 		
 		do {
-			jogadas++;
-=======
-		int empate = 0;
-=======
->>>>>>> 1b1eee6fe00b40d122604d387b0d8e8b31f378b5
-		int jogadas = 0;
-		
-		Scanner sc = new Scanner(System.in);
-		
-		do {
-<<<<<<< HEAD
->>>>>>> ffab5b6914465ff644af5799e5df76e07ca93467
-=======
-			jogadas++;
->>>>>>> 1b1eee6fe00b40d122604d387b0d8e8b31f378b5
-			Jogador bruno = null;
+			System.out.println("Qual a quantidade de adversários?");
+			int numeroAdversarios = sc.nextInt();
+			String nomeAdversario = "Adversário ";
 			
-			System.out.println("Qual a jogada de Bruno? 1 - Pedra, 2 - Papel, 3 - Tesoura, 4 - Lagarto, 5 - Spock");
-			int jogada = sc.nextInt();
+			System.out.println("Qual a quantidade de jogadores?");
+			int numeroJogadores = sc.nextInt();
+			String nomeJogador = "Jogador ";
 			
+			jogadas++;
+			Jogador jogador = null;
+			
+			Computador[] computador = new Computador[numeroAdversarios];
+			//System.out.println(numeroAdversarios);
+			for (int i = 0; i < numeroAdversarios; i++) {
+				//concatena cada "Adversário" com o número até chegar no que foi digitado. 
+				//EX: 2 : Adversario1, Adversario 12
+				nomeAdversario = nomeAdversario.concat(Integer.toString(i+1));
+				System.out.println(nomeAdversario);
+				computador[i] = new Computador (nomeAdversario);
+				//System.out.println(computador[i]);
+			}
+			
+			Jogador[] jogadores = new Jogador[numeroAdversarios+1];
+			
+			for (int i = 0; i < numeroJogadores; i++) {
+				nomeJogador = nomeJogador.concat(Integer.toString(i+1));
+				int jogada;
+				System.out.println("Qual a jogada de Jogador? 1 - Pedra, 2 - Papel, 3 - Tesoura, 4 - Lagarto, 5 - Spock");
+				jogada = sc.nextInt();
+			//	jogadores[i] = computador[i];
+				System.out.println(nomeJogador +" escolheu " + jogada);
+			
+					
 			switch(jogada) {
 			case 1:
-				bruno = new Jogador("Bruno", Escolha.PEDRA);
+				jogador = new Jogador("Jogador", Escolha.PEDRA);
 				break;
 			case 2:
-				bruno = new Jogador("Bruno", Escolha.PAPEL);
+				jogador = new Jogador("Jogador", Escolha.PAPEL);
 				break;
 			case 3:
-				bruno = new Jogador("Bruno", Escolha.TESOURA);
+				jogador = new Jogador("Jogador", Escolha.TESOURA);
 				break;
 			case 4:
-				bruno = new Jogador("Bruno", Escolha.LAGARTO);
+				jogador = new Jogador("Jogador", Escolha.LAGARTO);
 				break;
 			case 5:
-				bruno = new Jogador("Bruno", Escolha.SPOCK);
+				jogador = new Jogador("Jogador", Escolha.SPOCK);
 				break;
 			default:
 				System.out.println("ERRO");	
 			}
-
-		Computador computador = new Computador();
-		Regras regras = new Regras();
-		Jogador ganhador = regras.jogar(bruno, computador);
-		imprimirGanhador(ganhador);
-		
-		if (ganhador == bruno) {
-			brunoGanha++;
-		} else if (ganhador == computador) {
-			comptGanha++;
-<<<<<<< HEAD
-<<<<<<< HEAD
-		}
-		
-		System.out.println("Jogar de novo? 1 - Sim, 2 - N�o");
-		int resposta = sc.nextInt();
-		
-			if (resposta == 2) {
-				decisao = false;		
-			} 	
+			}
+			jogadores[numeroAdversarios] = jogador;
 			
-		} while (decisao == true);
-		sc.close();
-	}
-		
-=======
-		} else {
-			empate++;
-=======
->>>>>>> 1b1eee6fe00b40d122604d387b0d8e8b31f378b5
-		}
-		
+			Regras regras = new Regras();
+			int[] contaEscolhas = regras.calculaEscolhas(jogadores);
+	//		Escolha escolhaVencedora = regras.decidirVencedor(contaEscolhas);
+			
+	//		if (escolhaVencedora != null) {
+	//			for (int i = 0; i < numeroAdversarios; i++) {
+	//				if (jogadore s[i].getEscolha() == escolhaVencedora) {
+	//					System.out.println(jogadores[i].getNome() + "VENCEU!");
+				//	}
+			//	} 
+		//	} else {
+		//		System.out.println("DEU EMPATE!");
+		//	}
+				
 		System.out.println("Jogar de novo? 1 - Sim, 2 - Não");
 		int resposta = sc.nextInt();
 		
@@ -100,29 +95,27 @@ public class Main {
 			
 		} while (decisao == true);
 		sc.close();
-		
-	}
-	
-<<<<<<< HEAD
-	
->>>>>>> ffab5b6914465ff644af5799e5df76e07ca93467
-=======
->>>>>>> 1b1eee6fe00b40d122604d387b0d8e8b31f378b5
+				
+		int vitorias = brunoGanha;
+        int derrotas = comptGanha;
+        int empates = jogadas - brunoGanha - comptGanha;
+        double porcentVitorias = (vitorias + ((double) empates) / 2) / jogadas;
+        
+	    // Imprimir relatorio
+	        System.out.printf("|  %6s  |  %6s  |  %6s  |  %12s  |  %14s  |\n",
+	                "VITÓRIAS", "DERROTAS", "EMPATES", "JOGOS REALIZADOS", "PORCENTAGEM DE VITÓRIAS");
+	 
+	         System.out.printf("|  %6d  |  %6d  |  %6d  |  %12d  |  %13.2f%%  |\n",
+	                vitorias, derrotas, empates, jogadas, porcentVitorias * 100);
+	     
+	    }
+	 
 	private static void imprimirGanhador(Jogador ganhador) {
 		
 		if (ganhador == null) {
 			System.out.println("Empate!");
 		} else {
-<<<<<<< HEAD
-			System.out.println("O ganhador �: " + ganhador.getNome());
-		}
-		
-	}
-}
-=======
 			System.out.println("O ganhador é: " + ganhador.getNome());
 		}
-		//System.out.println(ganhador);
 	}
 }
->>>>>>> ffab5b6914465ff644af5799e5df76e07ca93467
