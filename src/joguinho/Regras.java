@@ -162,4 +162,47 @@ public class Regras {
 		}
 		return resultado;
 	}
+	/*public int[] calculaEscolhas(Jogador[] jogadores) {
+		int pedra = 0;
+		int papel = 0;
+		int tesoura = 0;
+		int lagarto = 0;
+		int spock = 0;
+		
+		for (int i = 0; i < jogadores.length; i++) {
+			if (jogadores[i].getEscolha() == Escolha.PEDRA) {
+				pedra++;
+			} else if (jogadores[i].getEscolha() == Escolha.PAPEL) {
+				papel++;
+			} else if (jogadores[i].getEscolha() == Escolha.TESOURA) {
+				tesoura++;
+			} else if (jogadores[i].getEscolha() == Escolha.LAGARTO) {
+				lagarto++;
+			} else if (jogadores[i].getEscolha() == Escolha.SPOCK) {
+				spock++;
+			}
+			switch (jogadores[i].getEscolha()) {
+			case PEDRA:
+				pedra =+ tesoura + lagarto;
+				break;
+			case PAPEL:
+				papel =+ pedra + spock;
+				break;
+			case TESOURA:
+				tesoura =+ papel + lagarto;
+				break;
+			case LAGARTO:
+				lagarto =+ papel + spock;
+				break;
+			case SPOCK:
+				spock =+ pedra + tesoura;
+				break;
+			default:
+				break;
+			}
+		}
+		
+		
+		return null;
+	}*/
 }
