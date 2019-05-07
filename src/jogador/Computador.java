@@ -44,7 +44,11 @@ public class Computador extends Jogador implements Trapaca{
 	
 	@Override
 	public String getNome() {
+<<<<<<< HEAD
 		return super.getNome();
+=======
+		return "Computador: " + super.getNome();
+>>>>>>> ffab5b6914465ff644af5799e5df76e07ca93467
 	}
 	
 	@Override

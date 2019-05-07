@@ -34,10 +34,14 @@ public class Jogador {
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		return "Jogador " 
 				+ nome 
 				+ " escolheu " 
 				+ escolha;
+=======
+		return "Jogador " + nome + " escolheu " + escolha;
+>>>>>>> ffab5b6914465ff644af5799e5df76e07ca93467
 	}
 
 }
